@@ -1,6 +1,6 @@
 
 // Connection to DB
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const consoleTable = require("console.table");
 
@@ -15,4 +15,34 @@ const connection = mysql.createConnection({
 connection.connect(function (err) {
     if (err) throw err;
     console.log("connected as id " + connection.threadId);
+    startProgram();
 });
+
+function startProgram() {
+    inquirer.prompt({
+
+        type: "list",
+        name:"actions",
+        message: "What would you like to do?",
+        choices: ["View all employees", "View all employees by departments", "View all employees by managers", "Add Employee", "Add employee", "Update employee role", "Update employee manager", "Exit"]
+    })
+
+    .then(function(answer) {
+        switch (answer.actions) {
+            case "View all employees":
+                viewEmployees();
+                break;
+        
+        case "exit":
+            connection.end();
+            break;
+        } 
+    });  
+};
+function viewEmployees() {
+    connection.query("SELECT * FROM employee_table", function (err, res) {
+        if(err) throw err;
+        console.table(res);
+    });
+    startProgram(); 
+};
