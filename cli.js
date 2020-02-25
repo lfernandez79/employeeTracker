@@ -24,13 +24,17 @@ function startProgram() {
         type: "list",
         name:"actions",
         message: "What would you like to do?",
-        choices: ["View all employees", "View all employees by departments", "View all employees by managers", "Add Employee", "Add employee", "Update employee role", "Update employee manager", "Exit"]
+        choices: ["View all employees", "View employees by departments", "View all employees by managers", "Add Employee", "Add employee", "Update employee role", "Update employee manager", "Exit"]
     })
 
     .then(function(answer) {
         switch (answer.actions) {
             case "View all employees":
                 viewEmployees();
+                break;
+
+            case "View employees by departments":
+                employeeByDept();
                 break;
         
         case "exit":
@@ -45,4 +49,12 @@ function viewEmployees() {
         console.table(res);
     });
     startProgram(); 
+};
+
+function employeeByDept() {
+    connection.query("SELECT * FROM department_table", function (err, res) {
+        if(err) throw err; 
+        console.table(res);   
+    });
+    startProgram();
 };
