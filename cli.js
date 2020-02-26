@@ -36,6 +36,10 @@ function startProgram() {
             case "View employees by departments":
                 employeeByDept();
                 break;
+
+            case "View all employees by managers":
+                employeesByMgr();
+                break;
         
         case "exit":
             connection.end();
@@ -58,3 +62,10 @@ function employeeByDept() {
     });
     startProgram();
 };
+
+function employeesByMgr() {
+    connection.query("SELECT * FROM employee_table where manager_id IS NOT NULL", function(err,res) {
+    if(err) throw err;
+    console.table(res);
+    });
+}
