@@ -24,7 +24,7 @@ function startProgram() {
         type: "list",
         name:"actions",
         message: "What would you like to do?",
-        choices: ["View all employees", "View employees by departments", "View all employees by managers", "Add Employee", "Remove Employee", "Update employee role", "Update employee manager", "Exit"]
+        choices: ["View all employees", "View employees by departments", "View all employees by managers", "Add Employee", "Remove Employee", "Update employee role", "Update employee manager"]
     })
 
     .then(function(answer) {
@@ -49,9 +49,9 @@ function startProgram() {
                 remEmployee();
                 break;
         
-        case "exit":
-            connection.end();
-            break;
+        // case "exit":
+        //     connection.end();
+        //     break;
         } 
     });  
 };
@@ -145,6 +145,8 @@ function remEmployee() {
             startProgram();
         });
 };
+
+
 
 // con.connect(function (err) {
 //     if (err) throw err;
