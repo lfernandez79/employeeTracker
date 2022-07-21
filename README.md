@@ -7,6 +7,7 @@ Developers are often tasked with creating interfaces that make it easy for non-d
 Design the following database schema containing three tables:
 
 ![Database Schema](Assets/schema.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flfernandez79%2FemployeeTracker.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Flfernandez79%2FemployeeTracker?ref=badge_shield)
 
 * **department**:
 
@@ -133,3 +134,7 @@ You are required to submit the following:
 
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flfernandez79%2FemployeeTracker.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Flfernandez79%2FemployeeTracker?ref=badge_large)
